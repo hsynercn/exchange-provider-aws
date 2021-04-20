@@ -1,0 +1,9 @@
+Resources:
+  Function:
+    Type: AWS::Serverless::Function
+    Properties:
+      Timeout: 47
+      MemorySize: 128
+      Handler: helloworld.App
+      CodeUri: D:\workspace\exchange-provider-aws\HelloWorldFunction
+      Runtime: java11
