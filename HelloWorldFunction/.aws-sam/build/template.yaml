@@ -2,8 +2,8 @@ Resources:
   Function:
     Type: AWS::Serverless::Function
     Properties:
-      Timeout: 47
+      Timeout: 300
       MemorySize: 128
-      Handler: helloworld.App
+      Handler: functions.CurrencyDataFetcher
       CodeUri: Function
       Runtime: java11
