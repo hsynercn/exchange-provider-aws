@@ -52,9 +52,6 @@ public class CurrencyDataFetcher implements RequestHandler<APIGatewayProxyReques
         exchangeData.setMainCode(exchangeDataRepository.getMainCode());
         exchangeData.setInstanceDate(new Date().toString());
         ExchangeDataDBHandler.putItemOne(exchangeData);
-        /*
-        ExchangeDataDBHandler.putItemOne(exchangeData);
-        */
 
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");

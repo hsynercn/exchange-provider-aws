@@ -4,6 +4,7 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
+import domain.ExchangeDataDBHandler;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,6 +19,6 @@ public class GetCurrency implements RequestHandler<APIGatewayProxyRequestEvent, 
                 .withHeaders(headers);
         return response
                         .withStatusCode(200)
-                        .withBody("this is some function A, hello there");
+                        .withBody(ExchangeDataDBHandler.getItemOne().getExchangeDataJson());
     }
 }

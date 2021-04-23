@@ -4,6 +4,6 @@ Resources:
     Properties:
       Timeout: 300
       MemorySize: 256
-      Handler: functions.CurrencyDataFetcher
+      Handler: functions.GetCurrency
       CodeUri: Function
       Runtime: java11

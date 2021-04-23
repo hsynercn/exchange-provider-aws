@@ -4,6 +4,6 @@ Resources:
     Properties:
       Timeout: 300
       MemorySize: 256
-      Handler: functions.CurrencyDataFetcher
+      Handler: functions.GetCurrency
       CodeUri: D:\workspace\exchange-provider-aws\HelloWorldFunction
       Runtime: java11
