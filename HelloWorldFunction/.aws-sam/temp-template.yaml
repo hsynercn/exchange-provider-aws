@@ -3,7 +3,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Timeout: 300
-      MemorySize: 128
+      MemorySize: 256
       Handler: functions.CurrencyDataFetcher
       CodeUri: D:\workspace\exchange-provider-aws\HelloWorldFunction
       Runtime: java11

@@ -5,6 +5,8 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
 import datasourceutil.EuropeanCentralBankCurrencySource;
+import domain.ExchangeData;
+import domain.ExchangeDataDBHandler;
 import model.ExchangeRate;
 import model.ExchangeRateList;
 import org.xml.sax.SAXException;
@@ -12,15 +14,12 @@ import sessiondata.ExchangeDataRepository;
 import util.GraphCalculator;
 
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class CurrencyDataFetcher implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
 
@@ -46,6 +45,16 @@ public class CurrencyDataFetcher implements RequestHandler<APIGatewayProxyReques
         exchangeDataRepository.setDate(result.getDate());
         exchangeDataRepository.setMainCode(mainCurrencyCode);
         exchangeDataRepository.setExchangeRates(traversalList);
+
+        ExchangeData exchangeData = new ExchangeData();
+        exchangeData.setExchangeDataJson(exchangeDataRepository.toString());
+        exchangeData.setDate(exchangeDataRepository.getDate().toString());
+        exchangeData.setMainCode(exchangeDataRepository.getMainCode());
+        exchangeData.setInstanceDate(new Date().toString());
+        ExchangeDataDBHandler.putItemOne(exchangeData);
+        /*
+        ExchangeDataDBHandler.putItemOne(exchangeData);
+        */
 
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
