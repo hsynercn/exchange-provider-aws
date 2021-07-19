@@ -3,7 +3,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Timeout: 300
-      MemorySize: 256
+      MemorySize: 128
       Handler: functions.GetCurrency
-      CodeUri: Function
+      CodeUri: D:\workspace\exchange-provider-aws\HelloWorldFunction\.aws-sam\build\Function
       Runtime: java11
