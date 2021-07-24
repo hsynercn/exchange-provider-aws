@@ -2,7 +2,7 @@
 
 Fetches EUR based historic exchange rates from ECB and generates exchange rate graph with daily changes. Spring Boot app with AWS Lambda, provides data for exchange-ui. 
 
-[Link to app](https://www.exchange-ui.com/)
+[Link to app](https://www.exchange-ui.com/)(coldstart may cause response delays)
 
 [Link to frontend repo](https://github.com/hsynercn/exchange-ui)
 
