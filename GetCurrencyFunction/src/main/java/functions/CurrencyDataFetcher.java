@@ -9,13 +9,10 @@ import domain.ExchangeData;
 import domain.ExchangeDataDBHandler;
 import model.ExchangeRate;
 import model.ExchangeRateList;
-import org.xml.sax.SAXException;
 import sessiondata.ExchangeDataRepository;
 import util.GraphCalculator;
 
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.IOException;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -29,13 +26,7 @@ public class CurrencyDataFetcher implements RequestHandler<APIGatewayProxyReques
         ExchangeRateList result = null;
         try {
             result = EuropeanCentralBankCurrencySource.extractData();
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         String mainCurrencyCode = "USD";
